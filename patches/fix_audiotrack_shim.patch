@@ -1,0 +1,16 @@
+--- a/hardware/lineage/compat/libaudioclient/AudioTrack.cpp
++++ b/hardware/lineage/compat/libaudioclient/AudioTrack.cpp
+@@ -21,11 +21,11 @@
+ 
+ typedef void (*legacy_callback_t)(int event, void* user, void* info);
+ class LegacyCallbackWrapper : public AudioTrack::IAudioTrackCallback {
+-    const AudioTrack::legacy_callback_t mCallback;
++    const legacy_callback_t mCallback;
+     void* const mUser;
+ 
+ public:
+-    LegacyCallbackWrapper(AudioTrack::legacy_callback_t callback, void* user)
++    LegacyCallbackWrapper(legacy_callback_t callback, void* user)
+         : mCallback(callback), mUser(user) {}
+ 
+     void onInterrupt() override {
